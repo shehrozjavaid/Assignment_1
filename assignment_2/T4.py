@@ -21,7 +21,7 @@ def ustr_upper(str1):
     for i in str1:
         if i.isupper():
             up+=1
-        elif i != ' ':
+        elif i.islower():
             low+=1
     print("No. of upper case chars: {}, No. of lower case chars: {}".format(up,low))
             
@@ -53,6 +53,9 @@ characters in the sentence capitalized.
 Sample input: Hello world Practice makes man perfect
 Expected output: HELLO WORLD PRACTICE MAKES MAN PERFECT
 """
+#This code takes multiple lines as input so i had to save the lines in a list.
+#I converted the list back to string so I could use upper() once rather than for each list item
+
 lines=list()
 while True:
     line=input("Input a string or press enter to finish: ")
@@ -102,7 +105,7 @@ between 1 and 20 (both 1 and 20 included)
 def t_gen():
     l1=list()
     for i in range(1,21):
-        l1.append(i)
+        l1.append(i*i)
     t1=tuple(l1)
     print(t1)
 
@@ -144,18 +147,19 @@ numbers in [1,2,3,4,5,6,7,8,9,10].
 Hints: Use filter() to filter even elements of the given listUse map() to generate a list of squares of the
 numbers in the filtered list. Use lambda() to define anonymous functions.
 """
-filtered_list= list(filter(lambda x1: x1%2==0,range(1,21)))
+filtered_list= list(filter(lambda x1: x1%2==0,range(1,11)))
 squared_list= list(map(lambda x2: x2*x2,filtered_list))
 
 ##################################################
 """
 12. Write a function to compute 5/0 and use try/except to catch the exceptions
 """
-try:
-    x=5//0
-except ZeroDivisionError:
-    print("Cannot divide by zero")
-    
+def comp():
+    try:
+        x=5//0
+    except ZeroDivisionError:
+        print("Cannot divide by zero")
+comp()
 ##################################################
 """
 Flatten the list [1,2,3,4,5,6,7] into 1234567 using reduce().
@@ -199,7 +203,8 @@ print(squared_list)
         a()
 """
 ##  Ans (i) 2
-##  Ans (ii) ERROR f is not defined
+##  Ans (ii) ERROR f is not defined. 
+##           If f is defined the function a() executes finally block and outputs 'after f' 'after f?'
 
 
 

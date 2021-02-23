@@ -1,11 +1,11 @@
-
+from functools import reduce
 
 ##  T2  ##
 
 """
 Q1 Create a list of 10 elements of four different data types like int, string, complex and float.
 """
-x=['1',1,,complex(1+1j),1.0,2,3,4,5,9]
+x=['1',1,complex(1+1j),1.0,2,3,4,5,9]
 
 ############################################
 
@@ -29,7 +29,8 @@ prod=reduce((lambda i,j: i*j),x)
 """
 x=[1,2,34,8,6]
 x_max=max(x)
-x+min=min(x)
+x_min=min(x)
+print(x_min)
 
 ###############################################
 """
@@ -42,7 +43,7 @@ for i in x1:
     if i%2==0:
         x2.append(i)
         x1.remove(i)
-print(x2)
+print(x1,x2)
 
 ###############################################
 """

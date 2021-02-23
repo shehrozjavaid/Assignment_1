@@ -5,7 +5,8 @@ from functools import reduce
 """
 1. Create a list of given structure and get the Access list as provided below:
 x=[100,200,300,400,500,[1,2,3,4,5,[10,20,30,40,50],6,7,8,9],600,700,800]
-Access list: [1, 2, 3, 4]Access list: [600, 700]
+Access list: [1, 2, 3, 4]
+Access list: [600, 700]
 Access list: [100, 300, 500, 600, 800]
 Access list: [[800, 700, 600, [1, 2, 3, 4, 5, [10, 20, 30, 40, 50], 6, 7, 8, 9], 500, 400, 300, 200, 100]]
 Access list: [10]
@@ -14,10 +15,18 @@ Access list: [ ]
 x=[100,200,300,400,500,[1,2,3,4,5,[10,20,30,40,50],6,7,8,9],600,700,800]
 
 access_list1=x[5][0:4]
-access_list2=x[6:]
-access_list3=[list(x[::-1])]
-access_list4=[x[5][5][0]]
+access_list2=x[6:len(x)-1]
+access_list3=x[0::2]
+access_list4=[list(x[::-1])]
+access_list5=[x[5][5][0]]
+access_list6=list()
 
+print(access_list1)
+print(access_list2)
+print(access_list3)
+print(access_list4)
+print(access_list5)
+print(access_list6)
 """
 2. Create a list of thousand numbers using range and xrange and see the difference between each
 other.
@@ -35,8 +44,7 @@ list_thousand=range(1,1001,1)
 4. Write a program in Python to iterate through the list of numbers in the range of 1,100 and print
 the number which is divisible by 3 and is a multiple of 2
 """
-x1=range(1,101)
-for i in x1:
+for i in range(1,101):
     if i%3==0 and i%2==0:
         print(i)
 
@@ -46,12 +54,13 @@ string with their index.
 """
 x=input("Enter a string: ")
 x_rev=x[::-1]
-x_rev_vows=""
+x_rev_vows={}
 for c in x_rev:
     if c in 'aeiouAEIOU':
-        x_rev_vows+=c
+        x_rev_vows[x_rev.index(c)]=c
         
-print(x_rev_vows)
+for i in x_rev_vows:
+    print(x_rev_vows[i],'index:', i)
 
 
 """
@@ -87,28 +96,33 @@ for i in x:
     Make sure once you enter all the 5 elements, calculate the sum of the list and return the
     maximum of the list.
 """
-"""
+
 even_list=list()
 odd_list=list()
-while((len(odd_list)<=5 and len(even_list)<=5)):
-    n1=int(input("enter a number in the range of 1,50: "))
-    if(n1%2==0):
-        if(len(even_list)==5):
-            print("Even list full!")
+ev_full=False
+od_full=False
+while True:
+    if(ev_full==True and od_full==True): break
+    input1=int(input("Enter a integer in the range 1 to 50: "))
+    if input1%2==0:
+        if len(even_list)>=5:
+            print("Even_list full!")
+            ev_full=True    
             continue
         else:
-            even_list.append(n1)
+            even_list.append(input1)
+            print('even:',len(even_list))
     else:
-        if(len(odd_list)==5):
-            print("Odd list full!")
+        if len(odd_list)>=5:
+            print("Odd_list full!")
+            od_full=True
             continue
         else:
-            even_list.append(n1)        
-    
-
+            odd_list.append(input1) 
+            print('odd:',len(odd_list))
+print()
 print("Sum of even_list:",sum(even_list),"Max of even_list", max(even_list))
 print("Sum of odd_list:",sum(odd_list),"Max of odd_list", max(odd_list))
-"""
 
 """
 9. Write a program to find out the occurrence of a specific character from an alphanumeric string.

@@ -11,12 +11,12 @@ Q1 1. Write a program in Python to perform the following operation:
     
 """
 num1 = int(input("Enter a number:"))
-if num1%3==0:
-    print("Consultadd")
-if num1%5==0:
-    print("Python Training")
 if num1%3==0 and num1%5==0:
     print("Consultadd - Python Training")
+elif num1%3==0:
+    print("Consultadd")
+elif num1%5==0:
+    print("Python Training")
 
 #####################################
 
@@ -48,13 +48,14 @@ if choice_num in [1,2,3,4]:
         print("{} - {} = {}".format(num1,num2,num1-num2))
         if num1-num2<0: print("NEGATIVE")
     if choice_num==3: 
-        print("{} / {} = {:.2f}".format(num1,num2,num1//num2))
+        print("{} / {} = {}".format(num1,num2,num1//num2))
         if num1//num2<0: print("NEGATIVE")
-    if choice_num==5: 
-        print("{} * {} = {:.2f}".format(num1,num2,num1*num2))
+    if choice_num==4: 
+        print("{} * {} = {}".format(num1,num2,num1*num2))
         if num1+num2<0: print("NEGATIVE")
 elif choice_num==5:
-    first,second = input("Enter Two more number for average separated by space: ")
+    first,second = input("Enter Two more number for average separated by space: ").split()
+    first,second = int(first),int(second)
     print("Average of {} {} {} {} is {:.2f}".format(num1,num2,first,second,(num1+num2+first+second)/4))
     
 
@@ -166,14 +167,16 @@ and letters.
 Sample input: consul72
 Expected output: Letters 6 Digits 2
 """
-str_input = str(input("Enter a string: "))
-lst1= [char for char in str_input]
+str_input = input("Enter a string: ")
+
 Letters,Digits = 0,0
-for i in lst1:
-    if i in '0123456789':
+for i in str_input:
+    if i.isdigit():
         Digits+=1
-    else:
+    elif i.isalpha():
         Letters+=1
+    else:
+        pass    
 print("Letters {} Digits {}".format(Letters,Digits))
 
 ######################################
@@ -233,7 +236,6 @@ while count<=5:
     number=int(input("Guess the lucky num: "))
     if number==lucky_num:
         print("Good guess!")
-        break
     else:
         print("Try again")
     count=count+1    
@@ -256,8 +258,9 @@ while count<=5:
         break
     else:
         print("Try again")
-    count=count+1    
-print("Sorry but that was not very successful")
+    count=count+1   
+if number!=lucky_num:
+    print("Sorry but that was not very successful")
 
 
 

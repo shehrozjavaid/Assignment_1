@@ -64,7 +64,7 @@ print(result)
 """
 Q6 Write a program to check the data type of the entered values.
 """
-input3 = input("enter a value: ")
+input3 = eval(input("enter a value: "))
 print("The datatype of the value",type(input3))
 
 
@@ -74,7 +74,7 @@ print("The datatype of the value",type(input3))
 Q7 Create Variables using formats such as Upper CamelCase, Lower CamelCase, SnakeCase and
 UPPERCASE.
 """
-str_case = str(input("Enter a string: "))
+str_case = input("Enter a string: ")
 str_camelCase_upper= str_case.title().replace(" ","")
 str_camelCase_lower=str_camelCase_upper[0].lower()+str_camelCase_upper[1:]
 str_snakeCase = str_case.replace(" ","_").lower()
