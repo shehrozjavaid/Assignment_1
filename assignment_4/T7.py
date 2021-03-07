@@ -77,8 +77,7 @@ class sum_2_zero:
                     s.add(self.arr[j])
         
         return r
-    
-    
+ 
 a=[-25,-10,-7,-3,2,4,8,10]
 obj1=sum_2_zero(a)
 print(obj1.find_sum())
@@ -109,10 +108,10 @@ class Time:
         print(self.minutes+(self.hours*60),"minutes")
         
         
-m1=Time(2,50)
-m2=Time(3,32)
-m2.addTime(m1, m2) 
-m2.displayMinute()
+t1=Time(2,50)
+t2=Time(3,32)
+t2.addTime(t1, t2) 
+t2.displayMinute()
      
 ###############################################
 """
