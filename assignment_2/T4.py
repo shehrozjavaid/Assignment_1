@@ -40,10 +40,10 @@ Q4 Write a program that accepts a hyphen-separated sequence of words as input an
 in a hyphen-separated sequence after sorting them alphabetically.
 """
 in1= input("enter a hyphen-separated sequence of words: ")
+#in1='hello-this-is-a-test'
 in1=in1.replace('-','')
 in1_sorted=sorted(in1)
-for i in in1_sorted:
-    print('{}-'.format(i),end='')
+print(reduce(lambda x,y: x+y, in1_sorted))
     
 #####################################
 

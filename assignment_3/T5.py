@@ -23,7 +23,10 @@ try:
 except IOError:
     print("file does not exist!")
 else:
-    print(f.readlines())
+    data = f.readlines() 
+    for line in data: 
+        word = line.split() 
+        print (word)
     
 #################################################################
 

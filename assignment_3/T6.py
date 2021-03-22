@@ -40,7 +40,7 @@ def gen1(s):
 str1="Consultadd Training"
 
 for i in gen1(str1):
-    print(i,end="")
+    print(next(i))
 
 
 """
@@ -63,6 +63,31 @@ func1 = my_decorator(func1)
 func1()
 
 
+def hello_decorator(func): 
+    def inner1(*args): 
+          
+        print("before Execution") 
+          
+        # getting the returned value 
+        returned_value = func(*args) 
+        print("after Execution") 
+          
+        # returning the value to the original frame 
+        return returned_value 
+          
+    return inner1 
+  
+  
+# adding decorator to the function 
+@hello_decorator
+def sum_two_numbers(a, b,c): 
+    print("Inside the function",a,b,c) 
+    return a + b + c
+  
+a, b, c = 1, 2, 3
+  
+# getting the value through return of the function 
+print("Sum =", sum_two_numbers(a, b,c))
 
 
 
