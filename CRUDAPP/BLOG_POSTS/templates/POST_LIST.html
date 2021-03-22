@@ -1,0 +1,16 @@
+<ul>
+    {%for post in posts%}
+    <li>
+        <h2>{{post.blog_title}}</h2>
+        <h3>{{post.blog_author}}</h3>
+        <p>{{post.blog_body}}</p>
+        <ul>
+            <li><a href="{%url 'BLOG_POSTS:edit' post.id%}">Edit</a>
+                <a href="{%url 'BLOG_POSTS:delete' post.id%}">Delete</a>
+            </li>
+        </ul>
+    </li>
+    {% endfor %}
+
+</ul>
+<a href="{% url 'BLOG_POSTS:creater'%}">Create New!</a>
